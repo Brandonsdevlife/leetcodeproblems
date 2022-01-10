@@ -1,0 +1,19 @@
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        carry = 0 #create an empty variable for storing the resulting variable of the int ( a (or b.) .pop() )
+        result = '' #create an empty string for storing the result = result (1st case: empty ) + str (carry remainder 2)
+        # if carry is 3 then remainder is 1 after 2, but it is 
+
+        a = list(a)
+        b = list(b)
+
+        while a or b or carry:
+            if a:
+                carry = carry + int(a.pop())
+            if b:
+                carry = carry + int(b.pop())
+
+            result = result + str(carry %2)
+            carry = carry // 2
+
+        return result[::-1]
