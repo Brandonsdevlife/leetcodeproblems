@@ -1,0 +1,15 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        charSet = set()
+        l = 0 #set left node
+        res = 0 #set result
+        for r in range(len(s)): #filter through the characters of the array
+            
+            while s[r] in charSet: #while there is character in the set
+                charSet.remove(s[l]) #remove the left pointer
+                l += 1 #increment the left pointer one
+                
+            charSet.add(s[r]) #add the right pointer to the list
+            res=max(res,r-l+1) #res = the max value from 0 to [r - l + 1] (abcabcbb) = [ 7 - 5 + 1 ]
+            print(max(res,r-l+1))    
+        return res
